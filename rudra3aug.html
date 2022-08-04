@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        // hide ----------------------------------------------
+
+        $(document).ready(function () {
+
+            $('#show').attr("disabled", true);
+
+            $('#hide').click(function () {
+                if (confirm("are you sure ...! ")) {
+                    $('#rudra1').hide(1000);
+                    $(this).attr("disabled", true);
+                    $('#show').attr("disabled", false);
+                    $("#btntoggle").text("show");
+                }
+            });
+            // show ------------------------------------
+
+            $('#show').click(function () {
+                if (confirm("are you sure ....! ")) {
+                    $('#rudra1').show(1000);
+                    $(this).attr("disabled", true);
+                    $('#hide').attr("disabled", false);
+                    $("#btntoggle").text("hide");
+                }
+            });
+
+
+            // toggle --------------------------------------
+            $("#btntoggle").click(function () {
+                if (confirm("are you sure...!")) {
+                    $("#rudra1").toggle(1000);
+                    ($(this).text() == "hide")
+                        ? ($(this).text("show"), $('#hide').attr("disabled", true), $('#show').attr("disabled", false))
+                        : ($(this).text("hide"), $('#hide').attr("disabled", false), $('#show').attr("disabled", true));
+                }
+            });
+
+            // ( + )--------------------------------------
+
+            $('#btnpluss').click(function () {
+                var MDHW = parseInt($("#rudra1").css("height"));
+                if (MDHW <= 500) {
+                    MDHW += 20;
+                    $('#rudra1').css("height", MDHW);
+                    $('#rudra1').css("width", MDHW);
+                }
+                else {
+                    alert("more 500px is not possible.");
+                }
+
+            });
+            //-------------------------------
+            $('#btnminus').click(function () {
+                var MDHW = parseInt($("#rudra1").css("height"));
+                if (MDHW >= 100) {
+                    MDHW -= 20;
+                    $('#rudra1').css("height", MDHW);
+                    $('#rudra1').css("width", MDHW);
+                }
+                else {
+                    alert("more 50px is not possible.");
+                }
+
+            });
+
+        });
+
+
+    </script>
+</head>
+
+<body>
+     <img src="rudra.jpeg" id="rudra1" style="height: 300px; width:300px;" >
+    <hr>
+    <button id="hide">HIDE</button>&nbsp;&nbsp;<button id="show">SHOW</button>
+    <hr>
+    <button id="btntoggle">hide</button>
+    <hr>
+    <button id="btnpluss">+</button> <button id="btnminus">-</button>
+
+</body>
+
+</html>
